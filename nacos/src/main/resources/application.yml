@@ -1,0 +1,19 @@
+server:
+  port: 8989
+dubbo:
+  registries:
+    beijing:
+      address: nacos://localhost:8848
+  protocol:
+    name: dubbo
+    port: 12314
+    dispatcher: all
+
+  application:
+    name: "dubbo-server"
+    id: "waht"
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: "dubbo-my"

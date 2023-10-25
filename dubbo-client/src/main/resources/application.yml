@@ -1,0 +1,18 @@
+server:
+  port: 5123
+dubbo:
+  registries:
+    beijing:
+      address: nacos://localhost:8848
+  protocol:
+    name: dubbo
+    port: 12343
+  application:
+    name: "dubbo-client"
+    id: "dubbo-myclient"
+
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: "dubbo2"
