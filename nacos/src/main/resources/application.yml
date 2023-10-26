@@ -14,6 +14,10 @@ dubbo:
     id: "waht"
 spring:
   main:
-    allow-bean-definition-overriding: true
+    allow-bean-definition-overriding: true 
   application:
     name: "dubbo-my"
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
