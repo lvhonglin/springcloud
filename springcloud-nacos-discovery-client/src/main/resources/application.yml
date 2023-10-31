@@ -1,0 +1,19 @@
+server:
+  port: 8990
+
+spring:
+  main:
+    allow-bean-definition-overriding: true 
+  application:
+    name: "springcloud-nacos-discovery-client"
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+ribbon:
+  ConnectTimeout: 1 #服务请求连接超时时间（毫秒）
+  ReadTimeout: 100 #服务请求处理超时时间（毫秒）
+  OkToRetryOnAllOperations: true #对超时请求启用重试机制
+  MaxAutoRetriesNextServer: 1 #切换重试实例的最大个数
+  MaxAutoRetries: 1 # 切换实例后重试最大次数
+  NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
