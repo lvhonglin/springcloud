@@ -1,0 +1,17 @@
+server:
+  port: 8021
+#应用名称（nacos会将该名称当作服务名称）
+spring:
+  application:
+    name: stock-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+        username: nacos
+        password: nacos
+        #        namespace可以表示生产还是测试环境
+        namespace: prod
+        group: group1
+#        ephemeral如果是false表示是永久实例
+        ephemeral: false
