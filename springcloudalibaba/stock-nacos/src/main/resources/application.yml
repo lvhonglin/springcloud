@@ -15,3 +15,8 @@ spring:
         group: group1
 #        ephemeral如果是false表示是永久实例
         ephemeral: false
+#        权重越高分配的流量越大
+        weight: 2
+#        用于做扩展
+        metadata:
+          version: 1

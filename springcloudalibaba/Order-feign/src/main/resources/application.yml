@@ -8,16 +8,19 @@ spring:
     nacos:
       discovery:
         server-addr: localhost:8848
-        username: nacos
-        password: nacos
+        username: lucy
+        password: lucy
 #        namespace可以表示生产还是测试环境
         namespace: prod
         group: "group1"
         cache-refresh-interval: 1000
-#  指定使用哪个环境的配置文件
-#  对应的nacos的dataid是${application.name}.${profiles}.${file-extension:properties}
-  profiles:
-    active:
 #logging:
 #  level:
 #    root: debug
+feign:
+  client:
+    config:
+      default:
+        loggerLevel: full
+        read-timeout: 1000
+        connect-timeout: 1000

@@ -13,6 +13,7 @@
         <module>stock</module>
         <module>stock-nacos</module>
         <module>Order-nacos</module>
+        <module>Order-feign</module>
     </modules>
     <packaging>pom</packaging>
     <properties>

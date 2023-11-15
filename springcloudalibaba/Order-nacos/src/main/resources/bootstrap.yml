@@ -1,1 +1,13 @@
-
+spring:
+  cloud:
+    nacos:
+      config:
+        server-addr: localhost:8848
+        namespace: prod
+        username: nacos
+        password: nacos
+#        对应nacos侧的配置格式，比如是properties还是yaml还是json，
+#        默认是properties
+        file-extension: yaml
+#        是否动态刷新，默认是true
+        refresh-enabled: true
