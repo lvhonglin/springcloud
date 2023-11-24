@@ -1,0 +1,19 @@
+# springcloud
+
+（1）当配置多个数据源的时候MapperScan需要指定sqlSessionFactoryRef
+（2）当配置多个数据源的时候不能使用@Autowired 直接引入OrderMapper
+
+（3）如果配置了DataSource可以把application.yml中的spring.datasource注释
+（4）如果配置了DataSource，springboot不会自动创建dataSource
+
+（5）如果配置了sqlSessionFactory可以把application.yml中的mybatis.mapper-locations给注释
+（6）如果配置了sqlSessionFactory，springboot不会自动创建sqlSessionFactory和PlatformTransactionManager, 
+如果不配置，spring会自动创建
+（7）如果没引入springboot，spring是不会自动创建sqlSessionFactory和PlatformTransactionManager的
+
+（8）如果创建了PlatformTransactionManager，springboot就不会自动创建PlatformTransactionManager了
+（9）如果创建了sqlSessionFactory，springboot也不会自动创建PlatformTransactionManager了
+
+（10）如果使用如下方式获取Mapper的话，就不需要使用@MapperScan注解了
+SqlSession sqlSession = sqlSessionFactory.openSession();
+OrderMapper orderMapper = sqlSession.getMapper(OrderMapper.class);

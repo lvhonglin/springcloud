@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tulingxueyuan.order.dao.OrderHistoryMapper">
+    <select id="getOrders" resultType="com.tulingxueyuan.order.model.Order">
+        SELECT id as id,
+        product_id as productId,
+        total_amount as totalAmount,
+        status as status
+        FROM order_tbl_history
+    </select>
+
+    <!-- 其他 SQL 语句... -->
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="com.tulingxueyuan.order.model.Order">
+        insert into order_tbl_history(product_id,total_amount,status) values(#{productId},#{totalAmount},#{status})
+    </insert>
+</mapper>

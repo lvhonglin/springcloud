@@ -1,0 +1,43 @@
+server:
+  port: 8020
+#应用名称（nacos会将该名称当作服务名称）
+spring:
+  application:
+    name: order-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+        username: nacos
+        password: nacos
+#        namespace可以表示生产还是测试环境
+        namespace: prod
+        group: "group1"
+        cache-refresh-interval: 1000
+#  指定使用哪个环境的配置文件
+#  对应的nacos的dataid是${application.name}.${profiles}.${file-extension:properties}
+#  profiles:
+#    active:
+
+#  如果在MybatisConfig中配置了DataSource可以把如下配置注释
+#  datasource:
+#    url: jdbc:mysql://localhost:3306/seata_order
+#    username: root
+#    password: mqq2005
+#    type: com.alibaba.druid.pool.DruidDataSource
+#    driver-class-name: com.mysql.jdbc.Driver
+#    druid:
+#      max-active: 20
+#      initial-size: 5
+#      min-idle: 3
+#      max-wait: 60000
+#      time-between-eviction-runs-millis: 60000
+#      min-evictable-idle-time-millis: 300000
+
+#  如果在MybatisConfig中配置了SqlSessionFactory可以把如下配置注释
+#mybatis:
+#  mapper-locations: classpath:mapper/*.xml
+
+#logging:
+#  level:
+#    root: debug

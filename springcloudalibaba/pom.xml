@@ -12,8 +12,12 @@
         <module>Order</module>
         <module>stock</module>
         <module>stock-nacos</module>
+        <module>stock-seata</module>
         <module>Order-nacos</module>
+        <module>Order-seata</module>
         <module>Order-feign</module>
+        <module>two-datasource-mybatis</module>
+        <module>transacation</module>
     </modules>
     <packaging>pom</packaging>
     <properties>

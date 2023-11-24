@@ -10,6 +10,7 @@ import org.springframework.web.client.RestTemplate;
 public class OrderController {
     @Autowired
     RestTemplate restTemplate;
+    @Autowired
     @RequestMapping("/add")
     public String add(){
         System.out.println("下单成功");
