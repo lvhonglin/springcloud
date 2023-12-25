@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tulingxueyuan.stock.dao.UserMapper">
+
+    <!-- 其他 SQL 语句... -->
+    <select id="getUser" resultType="com.tulingxueyuan.stock.model.SysUser">
+
+        select
+        id as id,
+        username as username,
+        password as password,
+        nickname as nickname
+        from sys_user where username=#{username} and password=#{password}
+    </select>
+
+    <select id="getUserByName" resultType="com.tulingxueyuan.stock.model.SysUser">
+
+        select
+        id as id,
+        username as username,
+        password as password,
+        nickname as nickname
+        from sys_user where username=#{username}
+    </select>
+</mapper>

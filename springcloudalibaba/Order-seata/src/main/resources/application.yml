@@ -14,6 +14,29 @@ spring:
         namespace: prod
         group: "group1"
         cache-refresh-interval: 1000
+    alibaba:
+      seata:
+        tx-service-group: guangzhou
+seata:
+  registry:
+    type: nacos
+    nacos:
+      username: nacos
+      password: nacos
+      namespace:
+      group: SEATA_GROUP
+      application: seata-server
+      server-addr: localhost:8848
+      cluster: default
+  config:
+    nacos:
+      username: nacos
+      password: nacos
+      namespace:
+      group: SEATA_GROUP
+      server-addr: localhost:8848
+    type: nacos
+
 #  指定使用哪个环境的配置文件
 #  对应的nacos的dataid是${application.name}.${profiles}.${file-extension:properties}
 #  profiles:

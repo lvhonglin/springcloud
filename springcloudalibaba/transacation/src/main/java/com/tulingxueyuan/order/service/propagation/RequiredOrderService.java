@@ -12,7 +12,7 @@ import org.springframework.web.client.RestTemplate;
 import java.util.List;
 
 @Service
-public class NotSupportOrderService2 {
+public class RequiredOrderService {
     @Autowired
     OrderMapper orderMapper;
     @Autowired
@@ -20,20 +20,26 @@ public class NotSupportOrderService2 {
     @Autowired
     RestTemplate restTemplate;
     @Autowired
-    NotSupportOrderService2 orderService;
+    RequiredOrderService orderService;
 
     @Transactional
     public int create(Order order) throws Exception {
         orderMapper.insert(order);
         try {
+            //如果createHistory加了transactional注解，createHistory报错了，
+            //create方法会抛出UnexpectedRollbackException异常，因为createHistory和create都是同一个事务，
+            //会打印======，然后在create方法的上一层抛出异常
             orderService.createHistory(order);
         }catch (Exception e){
             e.printStackTrace();
         }
+        System.out.println("=======================");
         return order.getProductId();
     }
 
-    //如下如果不加not_supported，就会插入成功
+
+    //如果加了transactional注解默认是required，如果不加就是没有事务
+    @Transactional
     public int createHistory(Order order) throws Exception {
         orderHistoryMapper.insert(order);
         exceptionZero();

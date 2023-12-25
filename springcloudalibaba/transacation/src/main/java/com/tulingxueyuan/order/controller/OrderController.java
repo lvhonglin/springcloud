@@ -30,6 +30,10 @@ public class OrderController {
     NeverOrderService neverOrderService;
     @Autowired
     NotSupportOrderService2 notSupportOrderService2;
+    @Autowired
+    RequiredOrderService requiredOrderService;
+    @Autowired
+    RequiredOrderService2 requiredOrderService2;
     @RequestMapping("/transaction/propagation/{method}")
     public String nested(@PathVariable("method") String method) throws Exception {
         Order order = new Order();
@@ -52,6 +56,10 @@ public class OrderController {
             notSupportOrderService.create(order);
         }else if(method.equalsIgnoreCase("not_support2")){
             notSupportOrderService2.create(order);
+        }else if(method.equalsIgnoreCase("required")){
+            requiredOrderService.create(order);
+        }else if(method.equalsIgnoreCase("required2")){
+            requiredOrderService2.create(order);
         }
         return "下单成功";
     }

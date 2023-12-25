@@ -14,7 +14,6 @@ import java.util.List;
 public class OrderController {
     @Autowired
     OrderService orderService;
-//    @Autowired
     @RequestMapping("/add")
     public String add() throws Exception {
         Order order = new Order();

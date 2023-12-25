@@ -4,7 +4,6 @@ import com.tulingxueyuan.ribbon.RibbonConfiguration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.client.RestTemplateBuilder;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.netflix.ribbon.RibbonClient;
 import org.springframework.cloud.netflix.ribbon.RibbonClients;
@@ -19,9 +18,9 @@ import java.time.Duration;
 })
 
 //@EnableDiscoveryClient 目前版本已经不需要加了，老版本需要加
-public class OrderApplication {
+public class OrderNacosApplication {
     public static void main(String[] args) {
-        SpringApplication.run(OrderApplication.class,args);
+        SpringApplication.run(OrderNacosApplication.class,args);
     }
     @Bean
     //（1）LoadBanalce表示使用ribbon

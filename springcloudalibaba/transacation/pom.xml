@@ -10,7 +10,7 @@
     <artifactId>transacation</artifactId>
     <packaging>jar</packaging>
 
-    <name>Order</name>
+    <name>transacation</name>
     <url>http://maven.apache.org</url>
 
     <properties>

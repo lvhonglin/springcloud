@@ -10,7 +10,7 @@
     <artifactId>two-datasource-mybatis</artifactId>
     <packaging>jar</packaging>
 
-    <name>Order</name>
+    <name>two-datasource-mybatis</name>
     <url>http://maven.apache.org</url>
 
     <properties>

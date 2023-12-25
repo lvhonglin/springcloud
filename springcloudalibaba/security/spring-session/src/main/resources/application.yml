@@ -1,0 +1,6 @@
+server:
+  port: 8541
+#应用名称（nacos会将该名称当作服务名称）
+spring:
+  application:
+    name: stock-service

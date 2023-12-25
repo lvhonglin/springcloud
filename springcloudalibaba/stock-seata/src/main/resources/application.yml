@@ -20,3 +20,25 @@ spring:
 #        用于做扩展
         metadata:
           version: 1
+    alibaba:
+      seata:
+        tx-service-group: guangzhou
+seata:
+  registry:
+    type: nacos
+    nacos:
+      username: nacos
+      password: nacos
+      namespace:
+      group: SEATA_GROUP
+      application: seata-server
+      server-addr: localhost:8848
+      cluster: default
+  config:
+    nacos:
+      username: nacos
+      password: nacos
+      namespace:
+      group: SEATA_GROUP
+      server-addr: localhost:8848
+    type: nacos

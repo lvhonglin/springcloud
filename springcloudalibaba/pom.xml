@@ -18,6 +18,9 @@
         <module>Order-feign</module>
         <module>two-datasource-mybatis</module>
         <module>transacation</module>
+        <module>security/spring-security</module>
+        <module>security</module>
+        <module>security/spring-session</module>
     </modules>
     <packaging>pom</packaging>
     <properties>

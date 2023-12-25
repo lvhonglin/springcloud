@@ -1,7 +1,10 @@
 package com.tulingxueyuan.order.service;
 
 import com.tulingxueyuan.order.dao.OrderMapper;
+import com.tulingxueyuan.order.feign.stock.StockFeignService;
 import com.tulingxueyuan.order.model.Order;
+import io.seata.spring.annotation.GlobalLock;
+import io.seata.spring.annotation.GlobalTransactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,16 +22,21 @@ public class OrderService {
     RestTemplate restTemplate;
     @Autowired
     OrderService orderService;
+    @Autowired
+    StockFeignService stockFeignService;
 
+    @GlobalTransactional
+    @GlobalLock
     public int create(Order order) throws Exception {
         //插入是否成功
         orderMapper.insert(order);
 //        exceptionZero();
         //扣减库存能否成功
-        Map<String, Object> map = new HashMap<String, Object>();
+        Map<String, Integer> map = new HashMap<String, Integer>();
         map.put("productId", order.getProductId());
-        String msg = restTemplate.postForObject("http://stock-service/stock/reduct", map, String.class);
-//        exceptionZero();
+        stockFeignService.reduct(map);
+//        String msg = restTemplate.postForObject("http://stock-service/stock/reduct", map, String.class);
+        exceptionZero();
         return order.getProductId();
     }
 
